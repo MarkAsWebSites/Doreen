@@ -45,7 +45,8 @@ body {
     }
 
     .navbar-nav .nav-link.active {
-        color: #d8ab52 !important;
+        color: #f1cf89 !important;
+        font-weight: 700;
     }
 
     .navbar-nav .nav-link::after {
@@ -63,6 +64,11 @@ body {
     .navbar-nav .nav-link.active::after {
         width: 100%;
         right: 0;
+    }
+
+    .navbar-nav .nav-link.active::after {
+        background: #f1cf89;
+        height: 3px;
     }
 
 .logo {
@@ -106,6 +112,16 @@ body {
 
 .custom-toggler:hover .hamburger-line {
     background-color: #B0B1B1;
+}
+
+/* RTL Support for Navbar Collapse */
+.navbar-collapse {
+    direction: rtl;
+    text-align: right;
+}
+
+.navbar-nav {
+    direction: rtl;
 }
 
 /* Hero Section */

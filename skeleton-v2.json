@@ -374,7 +374,8 @@
         {"src": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"},
         {"src": "analytics.js"},
         {"src": "getImages.js"},
-        {"src": "video.js"}
+        {"src": "video.js"},
+        {"src": "navigation.js"}
       ]
     }
   },
