@@ -230,7 +230,7 @@ body {
 
     /* Primary Phone Button */
     .hero-phone.primary {
-        background: linear-gradient(45deg, #f1cf89, #42310f);
+        background: #f1cf89;
         color: #FFFFFF;
         animation-delay: 0.4s;
     }
