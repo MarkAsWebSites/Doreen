@@ -7,6 +7,8 @@
       "companyName": "דורין סאסין",
       "logo": "logo.png",
       "favicon": "logo.png",
+      "og_image": "https://operadoreen.com/logo.png",
+      "og_url": "https://operadoreen.com",
       "analytics": {
         "enabled": true,
         "googleAnalyticsId": "G-PBP3G0KNMS"
@@ -19,6 +21,14 @@
         {
           "name": "msvalidate.01",
           "content": "72FC5FE023D698C42A776F361F7BFDEF"
+        },
+        {
+          "name": "og:image",
+          "content": "https://operadoreen.com/logo.png"
+        },
+        {
+          "name": "og:url",
+          "content": "https://operadoreen.com"
         }
       ]
     },

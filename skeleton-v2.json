@@ -375,7 +375,8 @@
         {"src": "analytics.js"},
         {"src": "getImages.js"},
         {"src": "video.js"},
-        {"src": "navigation.js"}
+        {"src": "navigation.js"},
+        {"src": "scroll-animations.js"}
       ]
     }
   },
