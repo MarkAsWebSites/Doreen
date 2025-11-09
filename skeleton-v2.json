@@ -30,7 +30,13 @@
         {"href": "https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap", "preload": true},
         {"href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css", "preload": true},
         {"href": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"},
-        {"href": "styles.css"}
+        {"href": "css/colors.css"},
+        {"href": "css/accessibility.css"},
+        {"href": "css/styles.css"},
+        {"href": "css/navigation.css"},
+        {"href": "css/sections.css"},
+        {"href": "css/gallery.css"},
+        {"href": "css/responsive.css"}
       ],
       "scripts": [
         {"content": "window.siteAnalytics = {{site.analytics}};", "inline": true}
@@ -120,10 +126,10 @@
                   "href": "tel:{{site.phoneInternational}}",
                   "onClick": "trackPhoneClick('hero_phone_primary');",
                   "icon": "fas fa-phone",
-                  "isEnabled": true,
                   "text": "{{site.phone}}",
                   "animation": "fadeInUp",
-                  "delay": "0.4s"
+                  "delay": "0.4s",
+                  "isEnabled": true
                 },
                 {
                   "type": "phoneButton",
@@ -133,32 +139,10 @@
                   "icon": "fas fa-mobile-alt",
                   "text": "{{site.secondaryPhone}}",
                   "animation": "fadeInUp",
-                  "delay": "0.6s"
+                  "delay": "0.6s",
+                  "isEnabled":  false
                 }
               ]
-            }
-          }
-        },
-		        {
-          "type": "gallery",
-          "id": "gallery",
-          "cssClass": "gallery-section",
-          "container": true,
-          "config": {
-            "title": {
-              "tag": "h2",
-              "cssClass": "section-title",
-              "content": "{{gallery.title}}"
-            },
-            "subtitle": {
-              "tag": "p",
-              "cssClass": "gallery-subtitle",
-              "content": "{{gallery.subtitle}}"
-            },
-            "container": {
-              "id": "imageGallery",
-              "cssClass": "gallery-grid fade-in",
-              "style": "display: grid; opacity: 1; transform: translateY(0px); transition: 0.6s;"
             }
           }
         },
@@ -194,6 +178,45 @@
                 "description": {
                   "tag": "p",
                   "cssClass": "service-description", 
+                  "content": "{{description}}"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "serviceAreas",
+          "id": "service-areas", 
+          "cssClass": "services-section",
+          "style": "",
+          "container": true,
+          "config": {
+            "title": {
+              "tag": "h2",
+              "cssClass": "services-title fade-in",
+              "content": "{{serviceAreas.title}}"
+            },
+            "layout": "cardGrid",
+            "gridClass": "row justify-content-center",
+            "dataBinding": "serviceAreas.items",
+            "itemTemplate": {
+              "type": "areaCard", 
+              "columnClass": "col-lg-5 col-md-6 mb-4",
+              "cardClass": "service-card fade-in",
+              "fields": {
+                "icon": {
+                  "tag": "div",
+                  "cssClass": "service-icon",
+                  "content": "{{icon}}"
+                },
+                "title": {
+                  "tag": "h3",
+                  "cssClass": "service-title", 
+                  "content": "{{title}}"
+                },
+                "description": {
+                  "tag": "p",
+                  "cssClass": "service-description",
                   "content": "{{description}}"
                 }
               }
@@ -281,6 +304,29 @@
           }
         },
         {
+          "type": "gallery",
+          "id": "gallery",
+          "cssClass": "gallery-section",
+          "container": true,
+          "config": {
+            "title": {
+              "tag": "h2",
+              "cssClass": "section-title",
+              "content": "{{gallery.title}}"
+            },
+            "subtitle": {
+              "tag": "p",
+              "cssClass": "gallery-subtitle",
+              "content": "{{gallery.subtitle}}"
+            },
+            "container": {
+              "id": "imageGallery",
+              "cssClass": "gallery-grid fade-in",
+              "style": "display: grid; opacity: 1; transform: translateY(0px); transition: 0.6s;"
+            }
+          }
+        },
+        {
           "type": "cta",
           "id": "contact",
           "cssClass": "cta-section",
@@ -303,7 +349,8 @@
                 "href": "tel:{{site.phoneInternational}}",
                 "onClick": "trackPhoneClick('cta_phone_primary');",
                 "icon": "fas fa-phone",
-                "text": "{{site.phone}}"
+                "text": "{{site.phone}}",
+                "isEnabled": true
               },
               {
                 "type": "phoneButton",
@@ -311,7 +358,8 @@
                 "href": "tel:{{site.secondaryPhoneInternational}}",
                 "onClick": "trackPhoneClick('cta_phone_secondary');",
                 "icon": "fas fa-mobile-alt",
-                "text": "{{site.secondaryPhone}}"
+                "text": "{{site.secondaryPhone}}",
+                "isEnabled": false
               }
             ]
           }
@@ -369,14 +417,15 @@
         }
       ],
       "scripts": [
-        {"src": "https://code.jquery.com/jquery-3.3.1.slim.min.js"},
-        {"src": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"},
-        {"src": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"},
-        {"src": "analytics.js"},
-        {"src": "getImages.js"},
-        {"src": "video.js"},
-        {"src": "navigation.js"},
-        {"src": "scroll-animations.js"}
+        { "src": "https://code.jquery.com/jquery-3.3.1.slim.min.js" },
+        { "src": "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" },
+        { "src": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" },
+        { "src": "https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" },
+        { "src": "javascript/analytics.js" },
+        { "src": "javascript/getImages.js" },
+        { "src": "javascript/video.js" },
+        { "src": "javascript/navigation.js" },
+        { "src": "javascript/scroll-animations.js" }
       ]
     }
   },
