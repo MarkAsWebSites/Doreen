@@ -36,10 +36,12 @@
         {"href": "css/navigation.css"},
         {"href": "css/sections.css"},
         {"href": "css/gallery.css"},
-        {"href": "css/responsive.css"}
+        {"href": "css/responsive.css"},
+		{"href": "css/whatsapp-widget.css"}
       ],
       "scripts": [
-        {"content": "window.siteAnalytics = {{site.analytics}};", "inline": true}
+        {"content": "window.siteAnalytics = {{site.analytics}};", "inline": true},
+        {"src": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ads.adClient}}", "async": true, "crossorigin": "anonymous", "conditional": "{{ads.enabled}}"}
       ]
     },
     "body": {
@@ -327,6 +329,20 @@
           }
         },
         {
+          "type": "adsense",
+          "id": "ads-section",
+          "cssClass": "ads-section",
+          "container": true,
+          "config": {
+            "enabled": "{{ads.enabled}}",
+            "adClient": "{{ads.adClient}}",
+            "adSlot": "{{ads.adSlot}}",
+            "adFormat": "{{ads.adFormat}}",
+            "fullWidthResponsive": "{{ads.fullWidthResponsive}}",
+            "style": "display: block; text-align: center; margin: 40px 0;"
+          }
+        },
+        {
           "type": "cta",
           "id": "contact",
           "cssClass": "cta-section",
@@ -425,7 +441,8 @@
         { "src": "javascript/getImages.js" },
         { "src": "javascript/video.js" },
         { "src": "javascript/navigation.js" },
-        { "src": "javascript/scroll-animations.js" }
+        { "src": "javascript/scroll-animations.js" },
+		{ "src": "javascript/whatsapp-widget.js" }
       ]
     }
   },
@@ -488,6 +505,12 @@
       "description": "Site footer with links and copyright",
       "requiredData": ["footer.links", "footer.copyright"],
       "features": ["linkGeneration", "socialMedia", "responsive"]
+    },
+    "adsense": {
+      "description": "Google AdSense ad section with conditional rendering",
+      "requiredData": ["ads.enabled", "ads.adClient", "ads.adSlot"],
+      "optionalData": ["ads.adFormat", "ads.fullWidthResponsive"],
+      "features": ["conditionalRendering", "responsiveAds", "monetization"]
     }
   }
 }
